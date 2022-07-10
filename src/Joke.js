@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react';
-
+import config from './config';
 
 export default class Joke extends Component {
     state = {};
@@ -10,7 +10,12 @@ export default class Joke extends Component {
     }
 
     dadJokes = () => {
-        fetch('/jokes/one')
+        fetch(config.blogApi + '/jokes/one', {
+            mode: 'cors',
+            headers: {
+              'Access-Control-Allow-Origin':'*'
+            }
+          })
             .then(response => response.json())
             .then(message => {
                 this.setState({message: message[0]});
