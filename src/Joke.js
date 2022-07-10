@@ -10,7 +10,7 @@ export default class Joke extends Component {
     }
 
     dadJokes = () => {
-        fetch('/api/v1/jokes/one')
+        fetch('/jokes/one')
             .then(response => response.json())
             .then(message => {
                 this.setState({message: message[0]});
