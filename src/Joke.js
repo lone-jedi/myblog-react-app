@@ -10,12 +10,7 @@ export default class Joke extends Component {
     }
 
     dadJokes = () => {
-        fetch(config.blogApi + '/jokes/one', {
-            mode: 'cors',
-            headers: {
-              'Access-Control-Allow-Origin':'*'
-            }
-          })
+        fetch(config.blogApi + '/jokes/one')
             .then(response => response.json())
             .then(message => {
                 this.setState({message: message[0]});
